@@ -1,15 +1,19 @@
-version: 0.1
+version: 0.2
+
 phases:
+  install:
+    runtime-versions:
+      - echo install runtime
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo building
+      - echo Build started on `date`
+     
   post_build:
     commands:
-      - echo Build completed 
-  artifacts:
-   files:
-      - echo files in S3
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - echo files
