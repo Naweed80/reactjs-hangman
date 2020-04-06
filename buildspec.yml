@@ -2,7 +2,6 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
       - echo install runtime
   pre_build:
     commands:
