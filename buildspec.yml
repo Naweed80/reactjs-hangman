@@ -6,8 +6,10 @@ phases:
       - npm install
   build:
     commands:
-  
-      - npm run build
+      - echo building
  post_build:
     commands:
       - echo Build completed 
+  artifacts:
+   files:
+      - echo files in S3
