@@ -14,5 +14,8 @@ phases:
     commands:
       - echo Build completed on `date`
       # copy the contents of /build to S3
-      - aws s3 sync ./reactjs-hangman  S3://myreactdemo
+      - aws s3 rm s3://myreactdemo --recursive
+      - echo S3 bucket is cleared.
+      - aws s3 cp dist s3://myreactdemo --recursive
+      - echo Build completed on 'date'
       
