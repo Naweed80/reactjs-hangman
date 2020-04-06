@@ -14,5 +14,5 @@ phases:
     commands:
       - echo Build completed on `date`
       # copy the contents of /build to S3
-      - aws s3 cp --recursive --acl public-read ./build s3://react-firstdemo/ 
+      - aws s3 sync ./reactjs-hangman  S3://react-firstdemo --acl 'public-read'
       
