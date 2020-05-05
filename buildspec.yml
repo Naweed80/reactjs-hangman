@@ -1,14 +1,23 @@
 version: 0.2
+env:
+
+  parameter-store:
+    SONARQUBE_TOKEN: SONARCLOUD
+    SONARQUBE_ENDPOINT:SONAR_URL
 
 phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
       - npm install
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
   build:
     commands:
       - echo Build started on `date`
       - npm run build
+      - sonar-scanner -Dsonar.login=${env.SONARQUBE_TOKEN} -Dsonar.host.url=${env.SONAR_URL} -Dsonar.projectKey=Naweed80_reactjs-hangman -Dsonar.organization=Naweed80
      
   post_build:
     commands:
