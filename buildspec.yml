@@ -1,9 +1,8 @@
 version: 0.2
 env:
-
   parameter-store:
-    SONARQUBE_TOKEN: SONARCLOUD
-    SONARQUBE_ENDPOINT:SONAR_URL
+    SONARQUBE_TOKEN: "SONARCLOUD"
+    SONARQUBE_ENDPOINT:"SONAR_URL"
 
 phases:
   pre_build:
@@ -17,7 +16,7 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build
-      - sonar-scanner -Dsonar.login=${env.SONARQUBE_TOKEN} -Dsonar.host.url=${env.SONAR_URL} -Dsonar.projectKey=Naweed80_reactjs-hangman -Dsonar.organization=Naweed80
+      - sonar-scanner -Dsonar.login=${env.SONARQUBE_TOKEN} -Dsonar.host.url=${env.SONAR_URL} -Dsonar.projectKey="Naweed80_reactjs-hangman" -Dsonar.organization="Naweed80"
      
   post_build:
     commands:
