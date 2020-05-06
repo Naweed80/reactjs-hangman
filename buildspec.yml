@@ -16,7 +16,7 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build
-      - sonar-scanner -Dsonar.login=$SONARQUBE_TOKEN -Dsonar.host.url=$SONAR_URL -Dsonar.projectKey="Naweed80_reactjs-hangman" -Dsonar.organization="Naweed80"
+      - sonar-scanner -Dsonar.login=$Env:SONARQUBE_TOKEN -Dsonar.host.url=$Env:SONAR_URL -Dsonar.projectKey="Naweed80_reactjs-hangman" -Dsonar.organization="Naweed80"
      
   post_build:
     commands:
